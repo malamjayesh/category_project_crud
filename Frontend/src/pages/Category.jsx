@@ -13,6 +13,10 @@ function Category() {
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!input.trim()) {
+      alert("Please enter category name");
+      return;
+    }
     try {
       const res = await axios.post("http://localhost:5000/api/addcategory", {
         name: input,
