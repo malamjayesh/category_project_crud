@@ -18,7 +18,7 @@ function Category() {
     try {
       const res = await axios.post("http://localhost:5000/api/addcategory", {
         name: input,
-        categoryId: categories[0]._id,
+        categoryId: categories._id,
       });
       console.log(res.data);
       setInput("");
