@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { MdDelete } from "react-icons/md";
+
 function Category() {
   const [input, setInput] = useState("");
   const [categories, setCategories] = useState([]);
@@ -13,10 +15,6 @@ function Category() {
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!input.trim()) {
-      alert("Please enter category name");
-      return;
-    }
     try {
       const res = await axios.post("http://localhost:5000/api/addcategory", {
         name: input,
@@ -24,6 +22,19 @@ function Category() {
       });
       console.log(res.data);
       setInput("");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const handleDelete = async (id) => {
+    try {
+      const res = await axios.delete(
+        `http://localhost:5000/api/deletecategory/${id}`
+      );
+      if (res.status === 200) {
+        alert("Category deleted successfully");
+        setCategories(categories.filter((category) => category._id !== id));
+      }
     } catch (error) {
       console.log(error.message);
     }
@@ -45,10 +56,29 @@ function Category() {
             </option>
             {categories.map((category) => (
               <option key={category._id} value={category._id}>
+                <button>
+                  <MdDelete size={30} />
+                </button>
                 {category.name}
               </option>
             ))}
           </select>
+          <ul className="space-y-2 mt-4">
+            {categories.map((category) => (
+              <li
+                key={category._id}
+                className="flex justify-between items-center border p-2 rounded-md"
+              >
+                <span className="text-blue-900">{category.name}</span>
+                <button
+                  className="text-orange-500 hover:text-red-600"
+                  onClick={() => handleDelete(category._id)}
+                >
+                  <MdDelete size={24} />
+                </button>
+              </li>
+            ))}
+          </ul>
           <button
             type="submit"
             className="bg-blue-500 text-white rounded-md p-2 w-full mt-10 hover:bg-blue-700"
