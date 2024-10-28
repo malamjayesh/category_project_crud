@@ -22,6 +22,16 @@ function Navbar() {
               Category
             </Link>
           </li>
+          <li>
+            <Link to="/addproduct" className="text-white hover:text-orange-500">
+              Add Product
+            </Link>
+          </li>
+          <li>
+            <Link to="/product" className="text-white hover:text-orange-500">
+              Product
+            </Link>
+          </li>
           {theme === "light" ? (
             <IoIosSunny
               size={30}

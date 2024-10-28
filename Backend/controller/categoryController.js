@@ -19,30 +19,9 @@ const getCategories = async (req, res) => {
         res.status(500).json({message:"Failed to get categories"})
     }
 }
-const deleteCategory = async (req, res) => {
-    const {id} = req.params;
-    try {
-       const del = await Category.findByIdAndDelete(id)
-       res.status(200).json({message:"Category deleted successfully",del}) 
-    } catch (error) {
-        res.status(500).json({message:"Failed to delete category"})
-    }
-}
-const updateCategory = async (req, res) => {
-    const {id,name} = req.params;
-    try {
-        const update = await Category.findByIdAndUpdate(id,req.body,{
-            name,
-            new:true
-        })
-        res.status(200).json({message:"Category updated successfully",update})
-    } catch (error) {
-        res.status(500).json({message:"Failed to update category"})
-    }
-}
+
 module.exports = {
     createCategory,
     getCategories,
-    deleteCategory,
-    updateCategory
+    
 }

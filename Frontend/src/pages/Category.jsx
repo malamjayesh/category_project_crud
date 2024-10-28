@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 function Category() {
   const [input, setInput] = useState("");
   const [categories, setCategories] = useState([]);
+
   useEffect(() => {
     const fetchdata = async () => {
       const res = await axios.get("http://localhost:5000/api/getcategory");
@@ -26,19 +27,6 @@ function Category() {
       console.log(error.message);
     }
   };
-  const handleDelete = async (id) => {
-    try {
-      const res = await axios.delete(
-        `http://localhost:5000/api/deletecategory/${id}`
-      );
-      if (res.status === 200) {
-        alert("Category deleted successfully");
-        setCategories(categories.filter((category) => category._id !== id));
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
   return (
     <>
       <div className="flex justify-center items-center mt-10">
@@ -56,14 +44,11 @@ function Category() {
             </option>
             {categories.map((category) => (
               <option key={category._id} value={category._id}>
-                <button>
-                  <MdDelete size={30} />
-                </button>
                 {category.name}
               </option>
             ))}
           </select>
-          <ul className="space-y-2 mt-4">
+          {/* <ul className="space-y-2 mt-4">
             {categories.map((category) => (
               <li
                 key={category._id}
@@ -78,7 +63,7 @@ function Category() {
                 </button>
               </li>
             ))}
-          </ul>
+          </ul> */}
           <button
             type="submit"
             className="bg-blue-500 text-white rounded-md p-2 w-full mt-10 hover:bg-blue-700"
