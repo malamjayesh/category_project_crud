@@ -18,15 +18,24 @@ const AddProduct = async (req,res)=>{
 }
 const getProducts = async (req, res) => {
     try {
-      // Use `.populate("categoryId")` to retrieve the category details
-      const products = await Product.find().populate("categoryId", "name"); // populate with only the category name
+      const products = await Product.find().populate("categoryId", "name"); 
       res.status(200).json({ message: "Products fetched successfully", products });
     } catch (error) {
       console.error("Error fetching products", error);
       res.status(500).json({ message: "Failed to get products" });
     }
   };
+const DeleteProduct = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const deleteProduct = await Product.findByIdAndDelete(id);
+        res.status(200).json({ message: "Product deleted successfully", deleteProduct });    
+    } catch (error) {
+        res.status(500).json({ message: "Failed to delete product" });
+    }
+}
 module.exports = {
     AddProduct,
-    getProducts
+    getProducts,
+    DeleteProduct
 }

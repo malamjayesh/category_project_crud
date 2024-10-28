@@ -20,6 +20,14 @@ function Product() {
   const handleClick = () => {
     navigate("/addproduct");
   };
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/deleteproduct/${id}`);
+      setProducts(products.filter((product) => product._id !== id));
+    } catch (error) {
+      console.error("Error deleting product", error);
+    }
+  };
   return (
     <div className="overflow-x-auto w-full mt-10">
       <button
@@ -60,7 +68,10 @@ function Product() {
                 </td>
                 <td className="border border-gray-300 p-2 ">
                   <button className="text-blue-800 underline">Edit</button>
-                  <button className="float-right text-red-600 underline">
+                  <button
+                    onClick={() => handleDelete(product._id)}
+                    className="float-right text-red-600 underline"
+                  >
                     Delete
                   </button>
                 </td>
