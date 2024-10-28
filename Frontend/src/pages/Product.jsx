@@ -56,7 +56,7 @@ function Product() {
                   <img
                     src={`http://localhost:5000/${product.image}`}
                     alt={product.image}
-                    className="h-16 w-16 object-cover"
+                    className="h-16 w-16 object-cover rounded-full"
                   />
                 </td>
                 <td className="border border-gray-300 p-2">{product.price}</td>
