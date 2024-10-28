@@ -43,13 +43,13 @@ function Navbar() {
           {theme === "light" ? (
             <IoIosSunny
               size={30}
-              className="cursor-pointer flex justify-self-end text-blue-400"
+              className="cursor-pointer flex justify-self-end text-white"
               onClick={handleTheme}
             />
           ) : (
             <GoMoon
               size={30}
-              className="cursor-pointer flex justify-self-end text-blue-400"
+              className="cursor-pointer flex justify-self-end text-white"
               onClick={handleTheme}
             />
           )}
