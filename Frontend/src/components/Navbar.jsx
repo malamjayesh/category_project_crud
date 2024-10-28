@@ -13,25 +13,25 @@ function Navbar() {
       <div className="flex justify-center">
         <ul className="flex space-x-4">
           <li>
-            <Link to="/" className="text-white hover:text-gray-500">
+            <Link to="/" className="text-white hover:text-orange-500">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/category" className="text-white hover:text-gray-500">
+            <Link to="/category" className="text-white hover:text-orange-500">
               Category
             </Link>
           </li>
           {theme === "light" ? (
             <IoIosSunny
               size={30}
-              className="cursor-pointer flex justify-self-end text-white"
+              className="cursor-pointer flex justify-self-end text-blue-400"
               onClick={handleTheme}
             />
           ) : (
             <GoMoon
               size={30}
-              className="cursor-pointer flex justify-self-end text-white"
+              className="cursor-pointer flex justify-self-end text-blue-400"
               onClick={handleTheme}
             />
           )}
