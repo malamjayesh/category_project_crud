@@ -20,6 +20,9 @@ function Product() {
   const handleClick = () => {
     navigate("/addproduct");
   };
+  const handleUpdate = () => {
+    navigate("/editproduct");
+  };
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/deleteproduct/${id}`);
@@ -67,7 +70,12 @@ function Product() {
                   {product.categoryId?.name || "No Category"}
                 </td>
                 <td className="border border-gray-300 p-2 ">
-                  <button className="text-blue-800 underline">Edit</button>
+                  <button
+                    onClick={() => handleUpdate()}
+                    className="text-blue-800 underline"
+                  >
+                    Edit
+                  </button>
                   <button
                     onClick={() => handleDelete(product._id)}
                     className="float-right text-red-600 underline"
@@ -92,5 +100,4 @@ function Product() {
     </div>
   );
 }
-
 export default Product;

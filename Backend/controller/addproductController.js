@@ -37,5 +37,5 @@ const DeleteProduct = async (req, res) => {
 module.exports = {
     AddProduct,
     getProducts,
-    DeleteProduct
+    DeleteProduct,
 }

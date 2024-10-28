@@ -32,6 +32,14 @@ function Navbar() {
               Product
             </Link>
           </li>
+          <li>
+            <Link
+              to="/editproduct"
+              className="text-white hover:text-orange-500"
+            >
+              Edit Product
+            </Link>
+          </li>
           {theme === "light" ? (
             <IoIosSunny
               size={30}
