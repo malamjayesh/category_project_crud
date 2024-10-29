@@ -20,7 +20,7 @@ function Product() {
   const handleClick = () => {
     navigate("/addproduct");
   };
-  const handleUpdate = () => {
+  const handleUpdate = (id) => {
     navigate("/editproduct");
   };
   const handleDelete = async (id) => {
@@ -71,7 +71,7 @@ function Product() {
                 </td>
                 <td className="border border-gray-300 p-2 ">
                   <button
-                    onClick={() => handleUpdate()}
+                    onClick={() => handleUpdate(product._id)}
                     className="text-blue-800 underline"
                   >
                     Edit

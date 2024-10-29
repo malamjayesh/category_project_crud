@@ -34,6 +34,7 @@ const DeleteProduct = async (req, res) => {
         res.status(500).json({ message: "Failed to delete product" });
     }
 }
+
 module.exports = {
     AddProduct,
     getProducts,
