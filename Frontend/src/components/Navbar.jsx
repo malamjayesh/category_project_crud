@@ -33,12 +33,12 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link
+            {/* <Link
               to="/editproduct"
               className="text-white hover:text-orange-500"
             >
               Edit Product
-            </Link>
+            </Link> */}
           </li>
           {theme === "light" ? (
             <IoIosSunny
