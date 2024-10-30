@@ -40,6 +40,7 @@ function Navbar() {
               Edit Product
             </Link> */}
           </li>
+          <li></li>
           {theme === "light" ? (
             <IoIosSunny
               size={30}

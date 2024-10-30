@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { MdDelete } from "react-icons/md";
-
 function Category() {
   const [input, setInput] = useState("");
   const [categories, setCategories] = useState([]);
-
   useEffect(() => {
     const fetchdata = async () => {
       const res = await axios.get("http://localhost:5000/api/getcategory");
@@ -48,7 +45,6 @@ function Category() {
               </option>
             ))}
           </select>
-
           <button
             type="submit"
             className="bg-blue-500 text-white rounded-md p-2 w-full mt-10 hover:bg-blue-700"

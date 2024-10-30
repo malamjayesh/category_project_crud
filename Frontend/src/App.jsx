@@ -6,6 +6,7 @@ import Category from "./pages/Category";
 import AddProduct from "./pages/AddProduct";
 import Product from "./pages/Product";
 import EditProduct from "./pages/EditProduct";
+
 function App() {
   return (
     <ThemeProvider>
