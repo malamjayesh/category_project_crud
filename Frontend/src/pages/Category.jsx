@@ -48,22 +48,7 @@ function Category() {
               </option>
             ))}
           </select>
-          {/* <ul className="space-y-2 mt-4">
-            {categories.map((category) => (
-              <li
-                key={category._id}
-                className="flex justify-between items-center border p-2 rounded-md"
-              >
-                <span className="text-blue-900">{category.name}</span>
-                <button
-                  className="text-orange-500 hover:text-red-600"
-                  onClick={() => handleDelete(category._id)}
-                >
-                  <MdDelete size={24} />
-                </button>
-              </li>
-            ))}
-          </ul> */}
+
           <button
             type="submit"
             className="bg-blue-500 text-white rounded-md p-2 w-full mt-10 hover:bg-blue-700"
