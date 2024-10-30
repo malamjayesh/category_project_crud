@@ -38,39 +38,14 @@ function EditProduct() {
       }
     };
     fetchData();
-  }, [id]); // Dependency array includes id
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append("name", product.name);
-  //   formData.append("price", product.price);
-  //   formData.append("description", product.description);
-  //   formData.append("categoryId", product.categoryId);
-  //   if (product.image) formData.append("image", product.image);
-
-  //   try {
-  //     await axios.put(
-  //       `http://localhost:5000/api/updateproduct/${id}`, // Use the retrieved ID
-  //       formData,
-  //       {
-  //         headers: {
-  //           "Content-Type": "multipart/form-data",
-  //         },
-  //       }
-  //     );
-  //     navigate("/product");
-  //   } catch (error) {
-  //     console.error("Error updating product", error);
-  //   }
-  // };
+  }, [id]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", product.name);
     formData.append("price", product.price);
     formData.append("description", product.description);
-    formData.append("categoryId", product.categoryId); // Ensure this is correct
+    formData.append("categoryId", product.categoryId);
     if (product.image) formData.append("image", product.image);
 
     try {
@@ -81,7 +56,7 @@ function EditProduct() {
           headers: { "Content-Type": "multipart/form-data" },
         }
       );
-      navigate(`/product`); // Ensure you navigate correctly
+      navigate(`/product`);
     } catch (error) {
       console.error("Error updating product", error);
     }

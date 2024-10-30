@@ -20,13 +20,9 @@ function Product() {
   const handleClick = () => {
     navigate("/addproduct");
   };
-  // const handleUpdate = (id) => {
-  //   navigate("/editproduct");
-  // };
   const handleUpdate = (id) => {
-    navigate(`/editproduct/${id}`); // Pass the product ID here
+    navigate(`/editproduct/${id}`);
   };
-
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/deleteproduct/${id}`);
