@@ -3,10 +3,9 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 function EditProduct() {
-  const { id } = useParams(); // Retrieve the id from the URL
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  // State to hold product details
   const [product, setProduct] = useState({
     name: "",
     price: "",
@@ -17,17 +16,14 @@ function EditProduct() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    // Fetch product details and categories
     const fetchData = async () => {
       try {
         const productRes = await axios.get(
-          `http://localhost:5000/api/getsingleproduct/${id}` // Use the retrieved ID
+          `http://localhost:5000/api/getsingleproduct/${id}`
         );
         const categoryRes = await axios.get(
           "http://localhost:5000/api/getcategory"
         );
-
-        // Set product and category data
         setProduct({
           ...productRes.data.product,
           categoryId: productRes.data.product.categoryId._id,
