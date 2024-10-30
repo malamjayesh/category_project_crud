@@ -6,7 +6,7 @@ import { ThemeContext } from "../context/Themecontext";
 function Navbar() {
   const { theme, handleTheme } = useContext(ThemeContext);
   useEffect(() => {
-    document.body.style.backgroundColor = theme === "light" ? "white" : "black";
+    document.body.style.backgroundColor = theme === "light" ? "white" : "gray";
   }, [theme]);
   return (
     <nav className="bg-indigo-900 p-4">
@@ -33,6 +33,16 @@ function Navbar() {
             </Link>
           </li>
           <li>
+            <Link to="/register" className="text-white hover:text-orange-500">
+              Register
+            </Link>
+          </li>
+          <li>
+            <Link to="/login" className="text-white hover:text-orange-500">
+              Login
+            </Link>
+          </li>
+          <li>
             {/* <Link
               to="/editproduct"
               className="text-white hover:text-orange-500"
@@ -40,7 +50,6 @@ function Navbar() {
               Edit Product
             </Link> */}
           </li>
-          <li></li>
           {theme === "light" ? (
             <IoIosSunny
               size={30}
