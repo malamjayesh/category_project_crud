@@ -116,7 +116,7 @@ function Registr() {
           <p className="text-sm text-center text-gray-600">
             Don't have an account?{" "}
             <Link to="/login" className="text-blue-500 hover:underline">
-              Register
+              Login
             </Link>
           </p>
         </form>
