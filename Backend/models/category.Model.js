@@ -6,6 +6,7 @@ const categorySchema = new mongoose.Schema({
     },
     categoryId:{
         type:String
-    }
+    },
+    
 },{timestamps:true,versionKey:false})
 module.exports = mongoose.model("categories",categorySchema)

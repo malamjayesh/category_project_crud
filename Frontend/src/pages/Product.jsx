@@ -17,11 +17,11 @@ function Product() {
           "http://localhost:5000/api/getproducts"
         );
         setProducts(productRes.data.products);
-        setFilteredProducts(productRes.data.products); // Initialize with all products
+        setFilteredProducts(productRes.data.products);
 
         const categoryRes = await axios.get(
           "http://localhost:5000/api/getcategory"
-        ); // Make sure this endpoint exists
+        );
         setCategories(categoryRes.data.categories);
       } catch (error) {
         console.error("Error fetching products or categories", error);
@@ -125,13 +125,13 @@ function Product() {
                 <td className="border border-gray-300 p-2">
                   <button
                     onClick={() => handleUpdate(product._id)}
-                    className="text-blue-800 underline"
+                    className="text-blue-800 bg-slate-200 p-2 w-20 rounded-lg"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDelete(product._id)}
-                    className="float-right text-red-600 underline"
+                    className="float-right text-red-600  bg-slate-200 p-2 w-20 rounded-lg"
                   >
                     Delete
                   </button>
@@ -153,5 +153,4 @@ function Product() {
     </div>
   );
 }
-
 export default Product;

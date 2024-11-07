@@ -13,6 +13,10 @@ function Category() {
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (input.trim() === "") {
+      alert("Please enter a category");
+      return;
+    }
     try {
       const res = await axios.post("http://localhost:5000/api/addcategory", {
         name: input,
@@ -52,6 +56,49 @@ function Category() {
             Submit
           </button>
         </form>
+      </div>
+      <div className="container mx-auto p-5 mt-10">
+        <h2 className="text-xl font-bold mb-4">Categorory Manage</h2>
+        <table className="min-w-full border border-gray-300">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="border border-gray-300 p-2 text-center">Name</th>
+              <th className="border border-gray-300 p-2 text-center">
+                {" "}
+                Category
+              </th>
+              <th className="border border-gray-300 p-2 text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {categories.map((category) => (
+              <tr key={category._id} className="border-b border-gray-300">
+                <td className="border border-gray-300 p-2"></td>
+                <td className="border border-gray-300 p-2">{category.name}</td>
+                <td className="border border-gray-300 p-2">
+                  <button className="text-blue-600  bg-slate-200 p-2 w-20 rounded-lg">
+                    Edit
+                  </button>
+                  <button className="float-right text-red-600 underline   bg-slate-200 p-2 w-20 rounded-lg">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+            <tr className="border-b border-gray-300">
+              <td className="border border-gray-300 p-2"></td>
+              <td className="border border-gray-300 p-2"></td>
+              <td className="border border-gray-300 p-2">
+                <button className="text-blue-600 underline bg-slate-200 p-2 w-20 rounded-lg">
+                  Edit
+                </button>
+                <button className="float-right text-red-600 underline  bg-slate-200 p-2 w-20 rounded-lg">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </>
   );

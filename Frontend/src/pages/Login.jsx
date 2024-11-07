@@ -2,12 +2,13 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { BiSolidShow, BiSolidHide } from "react-icons/bi";
 function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [ispassword, setispassword] = useState(true);
   const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({
@@ -37,7 +38,7 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen ">
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-700">Login</h2>
 
@@ -62,7 +63,7 @@ function Login() {
               Password
             </label>
             <input
-              type="password"
+              type={ispassword ? "text" : "password"}
               name="password"
               value={formData.password}
               onChange={handleChange}
@@ -70,6 +71,11 @@ function Login() {
               placeholder="Enter your password"
               required
             />
+            {ispassword ? (
+              <BiSolidShow size={20} onClick={() => setispassword(false)} />
+            ) : (
+              <BiSolidHide size={20} onClick={() => setispassword(true)} />
+            )}
           </div>
 
           <button

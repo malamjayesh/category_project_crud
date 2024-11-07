@@ -1,6 +1,10 @@
 const Category = require("../models/category.Model");
 const createCategory = async (req, res) => {
     const {name,categoryId} = req.body;
+    const existingCategory = await Category.findOne({name});
+    if (existingCategory) {         
+        return res.status(400).json({message:"Category already exists"})
+    }
     try {
         const newCategory = await Category.create({
             name,
@@ -23,5 +27,4 @@ const getCategories = async (req, res) => {
 module.exports = {
     createCategory,
     getCategories,
-    
 }
