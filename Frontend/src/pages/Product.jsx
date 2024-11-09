@@ -10,7 +10,6 @@ function Product() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch products and categories when component mounts
     const fetchProductsAndCategories = async () => {
       try {
         const productRes = await axios.get(
@@ -66,7 +65,6 @@ function Product() {
 
   return (
     <div className="overflow-x-auto w-full mt-10">
-      {/* Dropdown for selecting category */}
       <div className="mb-4 text-[20px]">
         <label htmlFor="category" className="mr-2">
           Filter by Category:

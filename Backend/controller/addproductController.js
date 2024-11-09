@@ -36,7 +36,6 @@ const DeleteProduct = async (req, res) => {
 }
 
 const getsingleProduct = async (req, res) => {
-    
     try {
         const product = await Product.findById(req.params.id).populate("categoryId", "name");
         if (!product) return res.status(404).json({ message: "Product not found" });

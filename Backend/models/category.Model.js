@@ -5,7 +5,9 @@ const categorySchema = new mongoose.Schema({
         required:true
     },
     categoryId:{
-        type:String
+        type:String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'categories' 
     },
     
 },{timestamps:true,versionKey:false})
