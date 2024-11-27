@@ -42,7 +42,7 @@ const deleteCategory = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Failed to delete category", error });
   }
-};
+}
 module.exports = {
   createCategory,
   getCategories,

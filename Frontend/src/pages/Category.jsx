@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 function Category() {
   const [input, setInput] = useState("");
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
@@ -55,7 +54,6 @@ function Category() {
       console.log("Error deleting category:", error.message);
     }
   };
-
   return (
     <>
       <div className="flex justify-center items-center mt-10">
